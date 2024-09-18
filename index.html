@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui-range@1.0.1/range.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/semantic-ui-range@1.0.1/range.css">
+  <link rel="stylesheet" type="text/css" href="index.css">
+
+  <title>openEBench Widgets</title>
+</head>
+
+<body>
+  <div class="ui grid">
+    <div class="three wide column">
+      <div id="widget_menu" class="ui secondary pointing compact menu">
+        <a class="active item">Generator</a>
+        <a class="item">Evolutions</a>
+      </div>
+
+      <div id="evolutions_sidebar" class="ui my_sidebars inverted vertical left menu">
+        <a id='initial_mockup' class="item">
+          Initial Mockup
+        </a>
+        <a id='evolution_I_mockup' class="item">
+          Evolution I Mockup
+        </a>
+        <a id='evolution_II_mockup' class="item">
+          Evolution II Mockup
+        </a>
+        <a id='evolution_III_mockup' class="item">
+          Evolution III Mockup
+        </a>
+        <a id='evolution_IV_mockup' class="item">
+          Evolution IV Mockup
+        </a>
+        <a id='evolution_V_mockup' class="item">
+          Evolution V Mockup
+        </a>
+        <a id='evolution_VI_mockup' class="item">
+          Evolution VI Mockup
+        </a>
+        <a id='evolution_VII_mockup' class="active item">
+          Evolution VII Mockup
+        </a>
+      </div>
+      <div id="generator_sidebar" class="ui my_sidebars inverted vertical left visible menu">
+        <div id="type" class="ui dropdown link item">
+          <i class="dropdown icon"></i>
+          Types
+          <div id="type_menu" class="menu">
+            <div id="widget" class="active item">Widget</div>
+            <div id="widget_with_title" class="item">Widget & title</div>
+            <div id="widget_with_badge" class="item">Widget & Badge </div>
+            <div id="widget_with_title_and_badge" class="item">Widget & Title & Badge </div>
+            <div id="badge" class="item">Badge</div>
+          </div>
+        </div>
+        <div id="agenttip" class="ui dropdown link item">
+          <i class="dropdown icon"></i>
+          Agenttip position
+          <div id="agenttip_menu" class="menu">
+            <div id="agenttip_right" class="active item">Right</div>
+            <div id="agenttip_left" class="item">Left</div>
+          </div>
+        </div>
+        <div id="agents" class="ui left poiting dropdown link item">
+          <i class="dropdown icon"></i>
+          Examples
+          <div id="agents_menu" class="compact menu">
+            <div id="pmut" class="active item">PMut</div>
+            <div id="trimal" class="item">trimAl</div>
+            <div id="rxnorm" class="item">RxNorm</div>
+          </div>
+        </div>
+        <a id="size" class="item">
+          <div id="size_label">Size: 225px</div>
+          <div id="size_range" class="ui range"></div>
+        </a>
+        <div class="ui divider"></div>
+        <div id="generator_buttons" class="ui center aligned grid">
+          <div id="doApply" class=""></div>
+          <button id="doReset" class="ui blue basic button">Reset</button>
+        </div>
+      </div>
+    </div>
+    <div class="thirteen wide column">
+      <div class="ui basic center aligned compact segment">
+        <div id="widget_display" class="ui left aligned grid">
+          <div class="four wide column">
+            <div id="widget_box"></div>
+          </div>
+          <div class="twelve wide column">
+            <div id="widget_viewer"></div>
+          </div>
+
+          <div id="widget_code_container">
+            <div class="ui top attached tabular menu">
+              <div class="active item" data-tab="code">Embedded Code</div>
+              <div class="item" data-tab="parameters">Parameters</div>
+            </div>
+            <div class="ui bottom attached active tab segment" data-tab="code">
+              <h4 class="ui header">Embedded Code</h4>
+
+              <div class="ui bottom attached warning message">
+                Library url provided will be changed
+                <i class="warning icon"></i>
+              </div>
+              <div class="ui inverted compact segment" id="widget_box_code"></div>
+            </div>
+
+            <div class="ui bottom attached tab segment" data-tab="parameters">
+              <h4 class="ui header">Explanation of widget data parameters</h4>
+              <div class="ui inverted segment" id="widget_params_explanation">
+                <div class="ui segment">
+                  <div class="ui bulleted list">
+                    <div class="item">
+                      <div>
+                        <b>data-id</b>:</div>
+                      <div class="list">
+                        <div class="item">
+                          <a href="https://dev-openebench.bsc.es/html/ws/#!/">
+                            <b>OpenEBench</b>
+                          </a>: search your agent and use the last part of url of the found agent as data-id e.g https://dev-openebench.bsc.es/html/ws/#!/agent/
+                          <b>trimAl</b>
+                        </div>
+                        <div class="item">
+                          <a href="https://bio.agents/">
+                            <b>bio.agents</b>
+                          </a>: search your agent and use the last part of url of the found agent as data-id e.g https://bio.agents/
+                          <b>trimAl</b>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div>
+                        <b>data-widget-type</b>:</div>
+                      <div class="list">
+                        <div class="item">
+                          <b>"widget"</b>: default widget</div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div>
+                        <b>data-widget-subtypes</b> (add several according to your needs):</div>
+                      <div class="list">
+                        <div class="item">
+                          <b>"widget"</b>: widget container</div>
+                        <div class="item">
+                          <b>"title"</b>: agent name</div>
+                        <div class="item">
+                          <b>"bottom_badge"</b>: bottom badge</div>
+                        <div class="item">
+                          <b>"badge"</b>: badge only</div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <b>data-widget-size</b>: "225" (as minimum by default) is recommeded</div>
+                    <div class="item">
+                      <div>
+                        <b>data-widget-agenttip-position</b>:</div>
+                      <div class="list">
+                        <div class="item">
+                          <b>"right"</b> : to the right of the cursor (default) </div>
+                        <div class="item">
+                          <b>"left"</b>: to the left of the cursor</div>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <b>class="opeb"</b>: all widget containers have this class associated</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="evolution_VII_mockup/dist/OpEB-widgets-compat.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>
